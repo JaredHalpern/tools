@@ -1,7 +1,7 @@
 <?php
 
 App::uses('CommonComponent', 'Tools.Controller/Component');
-App::uses('Component', 'Controller');
+App::uses('CakeSession', 'Model/Datasource');
 App::uses('Controller', 'Controller');
 App::uses('AppModel', 'Model');
 
@@ -14,8 +14,6 @@ class CommonComponentTest extends CakeTestCase {
 	public function setUp() {
 		parent::setUp();
 
-		// BUGFIX for CakePHP2.5 - One has to write to the session before deleting actually works
-		CakeSession::write('Auth', '');
 		CakeSession::delete('Auth');
 
 		$this->Controller = new CommonComponentTestController(new CakeRequest, new CakeResponse);
